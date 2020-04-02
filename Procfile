@@ -1,1 +1,1 @@
-web: gunicorn varcovar.wsgi:app --log-file
+web: gunicorn varcovar.wsgi
