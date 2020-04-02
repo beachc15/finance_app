@@ -1,2 +1,1 @@
-web: gunicorn varcovar.wsgi --log-file --preload
-
+web: gunicorn varcovar.wsgi --log-file
