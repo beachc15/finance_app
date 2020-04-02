@@ -25,7 +25,7 @@ SECRET_KEY = 'w&v+@79-48=apy$vc$#bw#r%+15g$a*w4zh=^$d$p)d!rz+4f*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['varcovar-app123.herokuapp.com']
+ALLOWED_HOSTS = ['varcovar-app123.herokuapp.com', '127.0.0.1']
 
 
 # Application definition

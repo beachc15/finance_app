@@ -7,15 +7,27 @@
 
 </head>
 <body>
-
-<h1>Input Stock Tickers Here</h1>
-<h2>Input tickers separated by commas</h2>
-
-<form action="/api/" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit">
-</form>
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="jumbotron">
+      <h1 class="display-4">Hello, Everybody</h1>
+      <p class="lead">Input stock tickers below to get the variance covariance matrix of it.</p>
+      <hr class="my-4">
+      <p>Make sure to separate the tickers by commas.</p>
+        <p>For example: 'aapl, msft, utx'</p>
+    </div>
+  </div>
+    <div class="row justify-content-center">
+    <form action="/api/" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit">
+    </form>
+  </div>
+        <div class="row justify-content-center">
+            <img src="https://www.aup.edu/sites/default/files/profile/picture/jward.jpg" alt="JNW" />
+        </div>
+</div>
 <br><br><br>
 
 
