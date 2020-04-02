@@ -1,1 +1,1 @@
-web: gunicorn varcovar.wsgi
+web: gunicorn varcovar
