@@ -13,10 +13,17 @@ def data_view(request):
         print('Post', request.POST['tickers'])
     try:
         tickers = request.POST['tickers']
+        # frequency = request.POST['frequency']
+        # period = request.POST['period']
+        frequency = '1mo'
+        period = '10y'
+
+        print(frequency)
+        print(period)
 
         remote_url = 'https://sleepy-garden-10843.herokuapp.com/api'
 
-        j_data = json.dumps(tickers)
+        j_data = json.dumps({'tickers': tickers, 'period': period,'frequency': frequency})
         headers = {'content-type': 'application/json', 'Accept-Charset': 'UTF-8'}
         r = requests.post(remote_url, data=j_data, headers=headers)
         z = r.json()
