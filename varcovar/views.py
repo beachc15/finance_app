@@ -13,10 +13,9 @@ def data_view(request):
         print('Post', request.POST['tickers'])
     try:
         tickers = request.POST['tickers']
-        # frequency = request.POST['frequency']
-        # period = request.POST['period']
-        frequency = '1mo'
-        period = '10y'
+        frequency = request.POST['frequency']
+        period = request.POST['period']
+
 
         print(frequency)
         print(period)
