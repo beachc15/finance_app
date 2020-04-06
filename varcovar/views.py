@@ -59,11 +59,15 @@ def data_view(request):
         gen_stats = pd.DataFrame(gen_stats)
         gen_stats = gen_stats.round(4)
 
+        gmvp = json.loads(z['gmvp'])
+        gmvp = pd.Series(gmvp, name='gmvp').round(2)
+        print(gmvp)
+
         for stat in json.loads(stats['stats']):
             print(stat)
 
 
-        return render(request, 'varcovar/api.html', {'DataFrame': df, 'prices': prices, 'year_stats': year_series, 'month_stats': month_series, 'gen_stats': gen_stats})
+        return render(request, 'varcovar/api.html', {'DataFrame': gmvp, 'prices': prices, 'year_stats': year_series, 'month_stats': month_series, 'gen_stats': gen_stats})
     except ModuleNotFoundError:
         return render(request, 'varcovar/index.html', {'form': NameForm})
 

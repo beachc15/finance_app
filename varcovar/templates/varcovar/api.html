@@ -9,22 +9,19 @@
 <body>
     <div class="container-fluid align-items-center">
         <div class="row justify-content-center">
-            <h3>Variance Covariance Matrix</h3>
+            <h3>Global Minimum Variance Portfolio (%)</h3>
         </div>
         <div class="row justify-content-center">
             <table class="table table-hover w-auto table-bordered">
                 <tr class="table-info">
-                    {% for data in DataFrame %}
+                    {% for data in DataFrame.index %}
                         <th>{{ data }}</th>
                     {% endfor %}
 
-                    {% for _, record in DataFrame.iterrows %}
-                        <tr>
-                            {% for value in record %}
-                                <td>{{ value }}</td>
-                            {% endfor %}
-                        </tr>
-                    {% endfor %}
+                    <tr>
+                        {% for value in DataFrame %}
+                            <td>{{ value }}</td>
+                        {% endfor %}
             </table>
 
         </div>
@@ -114,11 +111,20 @@
         </div>
 
     </div>
-
+<footer>
+    <p>Front-end and Back-end created by: Charles Beach</p>
+</footer>
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
+<style>
+    footer {
+        text-align: center;
+        display: block;
+        border: #515151;
+    }
+</style>
 
 </html>
