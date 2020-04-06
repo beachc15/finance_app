@@ -9,11 +9,11 @@
 <body>
     <div class="container-fluid align-items-center">
         <div class="row justify-content-center">
-            <h1>Variance Covariance Matrix</h1>
+            <h3>Variance Covariance Matrix</h3>
         </div>
         <div class="row justify-content-center">
-            <table border="1px">
-                <tr>
+            <table class="table table-hover w-auto table-bordered">
+                <tr class="table-info">
                     {% for data in DataFrame %}
                         <th>{{ data }}</th>
                     {% endfor %}
@@ -34,8 +34,8 @@
                 <h3>Yearly Statistics</h3>
             </div>
             <div class="row justify-content-center">
-                <table border="1px">
-                    <tr>
+                <table class="table table-hover w-auto table-bordered">
+                    <tr class="table-info">
                         {% for data in year_stats %}
                             <th>{{ data }}</th>
                         {% endfor %}
@@ -50,13 +50,14 @@
                 </table>
             </div>
         </div>
+{#    <div class="col-2"></div>#}
         <div class="col-4" id="month_stats">
-            <div class="row justify-content-center">
+            <div class="row justify-content-center w">
                 <h3>Monthly Statistics</h3>
             </div>
             <div class="row justify-content-center">
-                <table border="1px">
-                    <tr>
+                <table class="table table-hover w-auto table-bordered">
+                    <tr class="table-info">
                         {% for data in month_stats %}
                             <th>{{ data }}</th>
                         {% endfor %}
@@ -77,8 +78,8 @@
         <h3>General Statistics</h3>
     </div>
     <div class="row justify-content-center">
-            <table border="1px">
-                    <tr>
+            <table class="table table-hover table-bordered w-auto" >
+                    <tr class="table-info">
                         {% for data in gen_stats %}
                             <th>{{ data }}</th>
                         {% endfor %}
@@ -90,14 +91,14 @@
                                 {% endfor %}
                             </tr>
                         {% endfor %}
-                </table>
+            </table>
         </div>
         <div class="row justify-content-center">
-            <h3>Monthly Prices</h3>
+            <h3>Monthly Log Returns (%)</h3>
         </div>
         <div class="row justify-content-center">
-            <table border="1px">
-                    <tr>
+            <table class="table table-hover w-auto table-bordered">
+                <tr class="table-info">
                         {% for data in prices %}
                             <th>{{ data }}</th>
                         {% endfor %}
@@ -105,7 +106,7 @@
                         {% for _, record2 in prices.iterrows %}
                             <tr>
                                 {% for value2 in record2 %}
-                                    <td>{{ value2 }}</td>
+                                    <td>{{value2}}</td>
                                 {% endfor %}
                             </tr>
                         {% endfor %}

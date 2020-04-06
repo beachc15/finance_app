@@ -25,7 +25,6 @@ def data_view(request):
         headers = {'content-type': 'application/json', 'Accept-Charset': 'UTF-8'}
         r = requests.post(remote_url, data=j_data, headers=headers)
         z = r.json()
-        # print(z['matrix'])
         data = json.loads(z['matrix'])['data']
         stats = z['statistics']
         prices = stats['month_stats']['stat_prices']
@@ -35,9 +34,12 @@ def data_view(request):
         formatted_dates = []
         for date in dates:
             formatted_dates.append(datetime.utcfromtimestamp(float(date)/1000.).date())
+        prices = prices.multiply(10000)
+        prices = prices.astype('int64')
+        prices = prices.divide(100)
         prices.insert(0, 'Dates', formatted_dates)
         df = pd.DataFrame(data)
-        df = df.round(5)
+        df = df.round(4)
 
         yearly_stats = stats['year_stats']
         year_series = pd.DataFrame({'average': json.loads(yearly_stats['average']), 'variance': json.loads(yearly_stats['variance']), 'Standard Deviation': json.loads(yearly_stats['simga'])})
@@ -59,7 +61,6 @@ def data_view(request):
 
         for stat in json.loads(stats['stats']):
             print(stat)
-
 
 
         return render(request, 'varcovar/api.html', {'DataFrame': df, 'prices': prices, 'year_stats': year_series, 'month_stats': month_series, 'gen_stats': gen_stats})
