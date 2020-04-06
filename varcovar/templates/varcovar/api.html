@@ -26,6 +26,90 @@
                         </tr>
                     {% endfor %}
             </table>
+
+        </div>
+    <div class="row justify-content-center" id="stats">
+        <div class="col-4" id="year_stats">
+            <div class="row justify-content-center">
+                <h3>Yearly Statistics</h3>
+            </div>
+            <div class="row justify-content-center">
+                <table border="1px">
+                    <tr>
+                        {% for data in year_stats %}
+                            <th>{{ data }}</th>
+                        {% endfor %}
+
+                        {% for _, record in year_stats.iterrows %}
+                            <tr>
+                                {% for value in record %}
+                                    <td>{{ value }}</td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                </table>
+            </div>
+        </div>
+        <div class="col-4" id="month_stats">
+            <div class="row justify-content-center">
+                <h3>Monthly Statistics</h3>
+            </div>
+            <div class="row justify-content-center">
+                <table border="1px">
+                    <tr>
+                        {% for data in month_stats %}
+                            <th>{{ data }}</th>
+                        {% endfor %}
+
+                        {% for _, record in month_stats.iterrows %}
+                            <tr>
+                                {% for value in record %}
+                                    <td>{{ value }}</td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <div class="row justify-content-center" id="general_stats">
+        <h3>General Statistics</h3>
+    </div>
+    <div class="row justify-content-center">
+            <table border="1px">
+                    <tr>
+                        {% for data in gen_stats %}
+                            <th>{{ data }}</th>
+                        {% endfor %}
+
+                        {% for _, record2 in gen_stats.iterrows %}
+                            <tr>
+                                {% for value2 in record2 %}
+                                    <td>{{ value2 }}</td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                </table>
+        </div>
+        <div class="row justify-content-center">
+            <h3>Monthly Prices</h3>
+        </div>
+        <div class="row justify-content-center">
+            <table border="1px">
+                    <tr>
+                        {% for data in prices %}
+                            <th>{{ data }}</th>
+                        {% endfor %}
+
+                        {% for _, record2 in prices.iterrows %}
+                            <tr>
+                                {% for value2 in record2 %}
+                                    <td>{{ value2 }}</td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                </table>
         </div>
 
     </div>
