@@ -1,20 +1,21 @@
 from django import forms
 
 period_choices = (
+    ('10y', 'Ten Years'),
     ('3mo', 'Three Months'),
     ('6mo', 'Six-Months'),
     ('1y', 'One Year'),
     ('2y', 'Two Years'),
     ('5y', 'Five Years'),
-    ('10y', 'Ten Years'),
+
     ('ytd', 'Year-To-Date'),
     ('max', 'Maximum Time')
 )
 
 freq_choices = (
+    ('1mo', 'Monthly'),
     ('1d', 'Daily'),
     ('1wk', 'Weekly'),
-    ('1mo', 'Monthly'),
     ('3mo', 'Three Months')
 )
 

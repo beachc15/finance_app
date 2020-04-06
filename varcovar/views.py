@@ -30,6 +30,7 @@ def data_view(request):
         stats = z['statistics']
         prices = stats['month_stats']['stat_prices']
         prices = pd.DataFrame(json.loads(prices))
+        prices = prices.round(5)
         dates = list(map(int, prices.index))
         formatted_dates = []
         for date in dates:
@@ -41,6 +42,7 @@ def data_view(request):
         yearly_stats = stats['year_stats']
         year_series = pd.DataFrame({'average': json.loads(yearly_stats['average']), 'variance': json.loads(yearly_stats['variance']), 'Standard Deviation': json.loads(yearly_stats['simga'])})
         year_series = year_series.transpose()
+        year_series = year_series.round(4)
         year_series.insert(0, 'index', ['Average', 'Variance', 'Std-dev'])
 
         monthly_stats = stats['month_stats']
@@ -48,10 +50,13 @@ def data_view(request):
             {'average': json.loads(monthly_stats['average']), 'variance': json.loads(monthly_stats['variance']),
              'Standard Deviation': json.loads(monthly_stats['sigma'])})
         month_series = month_series.transpose()
+        month_series = month_series.round(4)
         month_series.insert(0, 'index', ['Average', 'Variance', 'Std-dev'])
 
         gen_stats = json.loads(stats['stats'])['data']
         gen_stats = pd.DataFrame(gen_stats)
+        gen_stats = gen_stats.round(4)
+
         for stat in json.loads(stats['stats']):
             print(stat)
 
